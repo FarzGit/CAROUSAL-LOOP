@@ -1,0 +1,29 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+  /* border: 1px solid black; */
+
+}
+th,td {
+  border: 1px solid black;
+  
+}
+
+th{
+    padding: 7px;
+}
+td{
+    padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.delete-icon:hover {
+    color: darkred;
+}
+
+.edit-icon:hover {
+    color: darkblue;
+}
+

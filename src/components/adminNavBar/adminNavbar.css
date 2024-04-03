@@ -1,0 +1,14 @@
+.font-medium {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.font-medium:hover {
+  color: rgb(37, 179, 235);
+  text-decoration: underline;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
