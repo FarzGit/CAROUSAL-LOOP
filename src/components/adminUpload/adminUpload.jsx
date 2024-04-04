@@ -2,11 +2,14 @@
 import { useState } from "react";
 import "./adminUpload.css";
 import AdminNavBar from "../adminNavBar/AdminNavBar";
+import {useNavigate} from 'react-router-dom'
+import axios from "axios";
+// import toast from "react-toastify";
 
 function AdminUpload() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [title, setTitle] = useState("");
-
+  let navigate = useNavigate()
   const handleFileChange = (e) => {
     console.log("changed");
     const file = e.target.files[0];
@@ -19,9 +22,33 @@ function AdminUpload() {
     setTitle(e.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     // Handle video upload logic
-    console.log("Video uploaded:", selectedVideo);
+    console.log("Video uploaded:", selectedVideo.title);
+    navigate('/admin-list')
+
+    try {
+      event.preventDefault();
+
+      // if (!editList.title.trim() || !editList.sub_title.trim()) {
+      //     toast.error('Both title and subtitle are required.');
+      //     return;
+      // }
+
+      const formData = new FormData();
+      formData.append('title', title);
+      formData.append('video_file',selectedVideo );
+
+      const response = await axios.post(`https://carousal-backend.onrender.com/api/upload/`, formData);
+        console.log(response);
+      if (response) {
+        
+          navigate('/admin-list')
+          // toast.success('cideo uploaded successfully.');
+      }
+  } catch (error) {
+      console.error('Error updating notice:', error);
+  }
   };
 
   return (

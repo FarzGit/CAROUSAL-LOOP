@@ -12,6 +12,7 @@ function adminVedioList() {
       .get("https://carousal-backend.onrender.com/api/videos/")
       .then((response) => {
         setVideos(response.data);
+        console.log(response.data)
       })
 
       .catch((error) => {
