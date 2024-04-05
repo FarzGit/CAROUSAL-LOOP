@@ -74,6 +74,7 @@ const Notice = () => {
             const response = await axios.post('https://carousal-backend.onrender.com/titlesubtitlemodels/', formData);
 
             if (response) {
+                closeAddModal()
                 navigate('/notice')
                 console.log(response.data);
 
