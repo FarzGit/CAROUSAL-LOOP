@@ -28,7 +28,6 @@ function AdminUpload() {
     navigate('/admin-list')
 
     try {
-      event.preventDefault();
 
       // if (!editList.title.trim() || !editList.sub_title.trim()) {
       //     toast.error('Both title and subtitle are required.');
@@ -42,9 +41,8 @@ function AdminUpload() {
       const response = await axios.post(`https://carousal-backend.onrender.com/api/upload/`, formData);
         console.log(response);
       if (response) {
-        
+          console.log(response.data)
           navigate('/admin-list')
-          // toast.success('cideo uploaded successfully.');
       }
   } catch (error) {
       console.error('Error updating notice:', error);
